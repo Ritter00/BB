@@ -1,0 +1,10 @@
+{% extends 'default.html' %}
+
+
+{% block title %}Категории{% endblock title %}
+
+{% block content %}
+    {% for category in categories %}
+        <hr><h5>{{ category }}</h5></hr>
+{% endfor %}
+{% endblock content %}
