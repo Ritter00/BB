@@ -3,8 +3,12 @@
 
 {% block title %}Объявления{% endblock title %}
 {% block content %}
-
-
-
-посты  {{ posters.content|safe}}
+    {% for poster in posters %}
+        <hr>
+        &nbsp; &nbsp; &nbsp; <a href="{% url 'poster_detail' poster.id %}">{{ poster.title }}</a>
+        &nbsp; &nbsp; &nbsp;<em><strong>Категория:</strong></em> <span style="text-align: center; color: #ff0000;">{{poster.category}}</span>
+        <em><strong>Последнее обновление:</strong></em> {{ poster.date_upgrade }} -- <em><strong>Дата создания:</strong></em> {{ poster.date_creation }}
+        <em><strong>Автор:</strong></em> {{ poster.author}}
+        </hr>
+    {% endfor %}
 {% endblock content %}

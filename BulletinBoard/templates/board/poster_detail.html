@@ -1,0 +1,13 @@
+{% extends 'default.html' %}
+{% block title %}{{ poster.title}}{% endblock title %}
+{% block content %}
+<p style="text-align: center;">
+    <em>Автор: {{poster.author}}</em>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+
+    <em>Дата создания/обновления: {{poster.date_creation}}/{{poster.date_upgrade}}</em>
+</p>
+<hr />
+<p style="text-align: center;"><strong>{{ poster.title}}</strong></p>
+<p>{{ poster.content|safe}}</p>
+
+{% endblock content %}

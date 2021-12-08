@@ -13,9 +13,16 @@ class MainView(TemplateView):
 
 
 class PosterListView(ListView):
-    queryset = Poster.objects.all().last()
+    queryset = Poster.objects.all()
     template_name = 'board/poster.html'
     context_object_name = 'posters'
+    ordering = ['-date_upgrade']
+
+
+class PosterDetailView(DetailView):
+    model = Poster
+    template_name = 'board/poster_detail.html'
+
 
 
 class CategoryDetailView(DetailView):
@@ -23,10 +30,16 @@ class CategoryDetailView(DetailView):
     template_name = 'board/category_detail.html'
     queryset = Category.objects.all()
 
+
+
 class CategoryListView(ListView):
     model = Category
     template_name = 'board/categories.html'
     context_object_name = 'categories'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
 
 
 class PosterCreateView(CreateView):

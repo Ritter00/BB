@@ -21,6 +21,9 @@ class Poster(models.Model):
     def __str__(self):
         return f'{self.title}'
 
+    def get_absolute_url(self):
+        return f'/board/{self.id}'
+
 
 class ResponseTTPoster(models.Model):
     date_creation = models.DateTimeField("Дата комментария", auto_now_add= True)

@@ -5,6 +5,7 @@
 
 {% block content %}
     {% for category in categories %}
-        <hr><h5>{{ category }}</h5></hr>
-{% endfor %}
+        <hr><h6><p style="text-align: center;"><a href="{% url 'category_detail' category.id %}">{{ category }}</a></p></h6></hr>
+
+    {% endfor %}
 {% endblock content %}
